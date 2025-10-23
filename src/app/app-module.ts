@@ -20,6 +20,7 @@ import { HotelList } from './hotels/hotel-list/hotel-list';
     NgbModule,
     NgbPaginationModule,
     NgOptimizedImage,
+
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
