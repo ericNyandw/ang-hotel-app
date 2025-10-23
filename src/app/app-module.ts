@@ -2,19 +2,29 @@ import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDete
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+import {provideHttpClient} from '@angular/common/http';
+import {NgOptimizedImage} from '@angular/common';
+
+import { HotelList } from './hotels/hotel-list/hotel-list';
+
+
 @NgModule({
   declarations: [
-    App
+    App,
+    HotelList
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    NgbPaginationModule,
+    NgOptimizedImage,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideZonelessChangeDetection()
+    provideZonelessChangeDetection(),
+    provideHttpClient(),
   ],
   bootstrap: [App]
 })
