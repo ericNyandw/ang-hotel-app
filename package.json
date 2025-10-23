@@ -28,14 +28,20 @@
     "@angular/forms": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
+    "@fortawesome/angular-fontawesome": "^3.0.0",
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@ng-bootstrap/ng-bootstrap": "^19.0.1",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.6",
-    "material-icons": "^1.13.14",
+    "bootstrap-icons": "^1.13.1",
+    "install": "^0.13.0",
+    "material-symbols": "^0.38.0",
     "rxjs": "~7.8.0",
     "to": "^0.2.9",
     "tslib": "^2.3.0",
-    "update": "^0.4.2"
+    "update": "^0.7.4"
   },
   "devDependencies": {
     "@angular/build": "^20.1.6",
