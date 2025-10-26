@@ -1,12 +1,6 @@
-/* Ajoutez ce style dans le fichier CSS de votre composant */
-.card-image-container {
-  /* Définissez la hauteur de l'image ici */
-  height: 250px;
-  /* Pour cacher la partie de l'image qui déborde du conteneur */
-  overflow: hidden;
-}
 
-.card-image-container img {
-  /* Recadre l'image pour qu'elle couvre le conteneur sans se déformer */
-  object-fit: cover;
+img {
+  width: 100%;
+  height: auto; /* Ajoute ceci pour corriger le ratio */
+
 }

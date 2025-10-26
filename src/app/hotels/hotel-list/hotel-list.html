@@ -1,48 +1,67 @@
 <div class="container">
   <h1>{{ myTiltet }}</h1>
+  <button class="btn btn-primary mr-0 d-flex"></button>
+  <hr/>
+  <div class="my-3">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="text-uppercase filter"> Filtre actuel: </span>
+        <b> </b>
+      </div>
+      <div class="col-md-8 form-group">
+        <input class="form-control" placeholder="rechercher" type="text"
+        />
+      </div>
+    </div>
+  </div>
 
-  @if (hotels$ != null && !error) {
-    <div class="row row-cols-1 row-cols-md-3">
-      @for (hotel of hotels$ | async; track hotel.id) {
-        <div class="col mb-4">
-          <div class="card">
-            <img
-              [alt]="hotel.hotelName"
-              [ngSrc]="hotel.imageUrl"
-              [title]="hotel.hotelName | uppercase"
-              class="card-img-top"
-              height="200" width="200"
-            />
-            <div class="card-body">
-              <h5 class="card-title">{{ hotel.hotelName | titlecase }}</h5>
+  @if (appState$ | async; as state) {
+    @if (state.loading) {
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    }
 
-              <p class="card-text">
-                {{ hotel.description }}
-              </p>
-              <p class="card-text">
-              </p>
-              <div class="d-flex justify-content-between align-items-baseline">
-                <span class="material-icons bg-primary text-white p-2 rounded-circle btn">
-                edit
-                </span>
-               <span class="material-icons bg-info text-white p-2 rounded-circle btn">
-              keyboard_arrow_right
-            </span>
-              </div>
-              <ng-container>
-                <ng-container>
-              <span class="badge badge-pill">
+    @if (state.error) {
+      <div class="alert alert-danger" role="alert">{{ state.error }}</div>
+    }
+    @if (state.hotels) {
+      <div class="row row-cols-1 row-cols-md-3">
+        @for (hotel of state.hotels; track hotel.id) {
+          <div class="col mb-4">
+            <div class="card h-100">
+              <img
+                [alt]="hotel.hotelName"
+                [ngSrc]="hotel.imageUrl"
+                [title]="hotel.hotelName | uppercase"
+                class="card-img-top"
+                height="425"
+                priority
+                sizes="100vw" style="width: 100%;" width="640"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{ hotel.hotelName | titlecase }}</h5>
+                <p class="card-text">{{ hotel.description }}</p>
+                <p class="card-text"></p>
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <span class="material-icons bg-primary text-white p-2 rounded-circle btn">
+                  edit
+                  </span>
+                  <span class="material-icons  bg-info text-white p-2 rounded-circle btn">
+                keyboard_arrow_right
               </span>
+                </div>
+                <ng-container>
+                  <ng-container>
+                <span class="badge badge-pill">
+                </span>
+                  </ng-container>
                 </ng-container>
-              </ng-container>
+              </div>
             </div>
           </div>
-        </div>
-      }
-    </div>
-  } @else {
-    <div class="alert alert-danger" role="alert">
-      {{ error }}
-    </div>
+        }
+      </div>
+    }
   }
 </div>
